@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout</title>
+    <style>
+        body {
+            display: grid;
+            grid-template-areas:
+                'header'
+                'main'
+                'footer';
+            grid-template-columns: 1fr;
+            gap: 10px;
+            height: 100vh;
+            margin: 0;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        header, main, .left, .right, footer {
+            padding: 20px;
+            text-align: center;
+            border: 2px solid #000; /* Для чіткішої видимості блоків */
+        }
+        header { background: #ff6666; grid-area: header; }
+        main { background: #ffffff; grid-area: main; }
+        .left { background: #ffcc66; grid-area: left; }
+        .right { background: #99ff99; grid-area: right; }
+        footer { background: #66ccff; grid-area: footer; }
+
+        @media (min-width: 600px) {
+            body {
+                grid-template-areas:
+                    'header header'
+                    'main main'
+                    'left right'
+                    'footer footer';
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 900px) {
+            body {
+                grid-template-areas:
+                    'header header header'
+                    'left main right'
+                    'footer footer footer';
+                grid-template-columns: 1fr 2fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>Header</header>
+    <main>Main</main>
+    <div class="left">Left</div>
+    <div class="right">Right</div>
+    <footer>Footer</footer>
+</body>
+</html>
